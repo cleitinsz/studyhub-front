@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+
+    // add all files in which you see
+    // the "parserOptions.project" error
+    ".eslintrc.js"
+  ]
+}
