@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
-import SearchButton from '../components/SearchButton';
 import { IMeet } from '../types/Meet';
 import { api } from '../lib/axios';
 import { Meet } from '../components/Meet';
 import Input from '../components/Input/Input';
 
 const ScheduledMeetings = () => {
-	const [loading, setLoading] = useState(false);
 	const [search, setSearch] = useState('');
 	const [meets, setMeets] = useState<IMeet[]>([]);
 
@@ -18,7 +16,6 @@ const ScheduledMeetings = () => {
 		} catch (error) {
 			console.log(error);
 		} finally {
-			setLoading(false);
 		}
 	};
 

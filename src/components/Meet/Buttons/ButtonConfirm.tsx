@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 
 const ButtonConfirm = (meet: IMeet) => {
-	const { user, isAuthenticated } = useContext(AuthContext);
+	const { isAuthenticated } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const isAuth = () => {

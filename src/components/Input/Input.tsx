@@ -6,7 +6,7 @@ import CreateMeet from '../CreateMeet';
 
 const delay = 250;
 
-const Input = ({ value, setSearch, hasFilter }: IInput) => {
+const Input = ({ setSearch, hasFilter }: IInput) => {
 	const [input, setInput] = useState('');
 
 	const debouncedChange = useDebounce(setSearch, delay);

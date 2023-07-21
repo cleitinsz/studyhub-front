@@ -6,19 +6,16 @@ import { Meet } from '../components/Meet';
 import Input from '../components/Input/Input';
 
 const Home = () => {
-	const [loading, setLoading] = useState(false);
 	const [search, setSearch] = useState('');
 	const [meets, setMeets] = useState<IMeet[]>([]);
 
 	const getAllMeets = async () => {
 		try {
-			setLoading(true);
 			const response = await api.get('meetings/open');
 			setMeets(response.data.meetings);
 		} catch (error) {
 			console.log(error);
 		} finally {
-			setLoading(false);
 		}
 	};
 

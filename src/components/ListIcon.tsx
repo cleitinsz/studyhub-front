@@ -1,10 +1,7 @@
 import {
-	AddressBook,
-	ChalkboardTeacher,
 	House,
 	List,
 	SignIn,
-	Users,
 } from '@phosphor-icons/react';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';

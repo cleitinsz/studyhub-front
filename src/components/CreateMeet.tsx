@@ -2,13 +2,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import dayjs from 'dayjs';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { api } from '../lib/axios';
 import { IMeet } from '../types/Meet';
-import { AuthContext, useAuth } from '../context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 
 const schema = z.object({
 	subject: z.string().nonempty('A matéria é obrigatória').max(50, {
@@ -36,7 +36,7 @@ const schema = z.object({
 });
 
 const CreateMeet = () => {
-	const { user, isAuthenticated } = useContext(AuthContext);
+	const { isAuthenticated } = useContext(AuthContext);
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
