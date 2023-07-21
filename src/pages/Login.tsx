@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { ILogin } from '../types/Login';
 import { api } from '../lib/axios';
 import { AuthContext } from '../context/AuthContext';
+import imgLogin from '../assets/imgLogin.png';
 
 const schema = z.object({
 	username: z
@@ -66,11 +67,7 @@ const Login = () => {
 		<form className="py-40 m-auto" onSubmit={handleSubmit(onSubmit)}>
 			<div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
 				<div className="hidden lg:block lg:w-1/2">
-					<img
-						src="../../src/assets/imgLogin.jpeg"
-						alt="teste"
-						className="w-full h-full"
-					/>
+					<img src={imgLogin} alt="teste" className="w-full h-full" />
 				</div>
 				<div className="w-full p-8 lg:w-1/2">
 					{authError && (

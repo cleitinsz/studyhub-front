@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { ISignUp } from '../types/Signup';
 import { api } from '../lib/axios';
 import { ICourse } from '../types/Course';
+import imgSignup from '../assets/imgSignup.png';
 
 const schema = z
 	.object({
@@ -95,11 +96,7 @@ const SignUp = () => {
 		<form className="py-24 m-auto" onSubmit={handleSubmit(onSubmit)}>
 			<div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
 				<div className="hidden lg:block lg:w-1/2 bg-cover">
-					<img
-						src="../../src/assets/imgSignup.jpeg"
-						alt="teste"
-						className="w-full h-full"
-					/>
+					<img src={imgSignup} alt="teste" className="w-full h-full" />
 				</div>
 				<div className="w-full p-8 lg:w-1/2">
 					<h2 className="text-2xl font-semibold text-gray-700 text-center">
