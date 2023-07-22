@@ -47,8 +47,10 @@ const Login = () => {
 		try {
 			setLoading(true);
 			const { username, password } = data;
-			await api.post('students/login', { username, password });
-			window.location.reload();
+			const response = await api.post('students/login', { username, password });
+			if (response.data.msg == 'Logged in!') {
+				window.location.reload();
+			}
 		} catch (error) {
 			setAuthError(true);
 			console.log(error);
