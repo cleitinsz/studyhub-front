@@ -1,0 +1,9 @@
+{
+	"routes": [
+		{ "src": "/", "dest": "/index.html" },
+		{ "src": "/scheduledmeetings", "dest": "/index.html" },
+		{ "src": "/mymeetings", "dest": "/index.html" },
+		{ "src": "/login", "dest": "/index.html" },
+		{ "src": "/signup", "dest": "/index.html" }
+	]
+}
