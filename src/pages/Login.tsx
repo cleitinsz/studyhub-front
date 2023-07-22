@@ -1,11 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { ILogin } from '../types/Login';
 import { api } from '../lib/axios';
 import imgLogin from '../assets/imgLogin.png';
+import { AuthContext } from '../context/AuthContext';
 
 const schema = z.object({
 	username: z
@@ -31,6 +32,7 @@ const schema = z.object({
 const Login = () => {
 	const [loading, setLoading] = useState(false);
 	const [authError, setAuthError] = useState(false);
+	const { isAuthenticated } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const {
@@ -46,6 +48,7 @@ const Login = () => {
 			setLoading(true);
 			const { username, password } = data;
 			await api.post('students/login', { username, password });
+			window.location.reload();
 			navigate('/');
 		} catch (error) {
 			setAuthError(true);
@@ -54,6 +57,12 @@ const Login = () => {
 			setLoading(false);
 		}
 	};
+
+	useEffect(() => {
+		if (isAuthenticated) {
+			navigate('/');
+		}
+	});
 
 	return (
 		<form className="py-40 m-auto" onSubmit={handleSubmit(onSubmit)}>
